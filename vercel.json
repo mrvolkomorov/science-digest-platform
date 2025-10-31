@@ -34,10 +34,5 @@
         }
       ]
     }
-  ],
-  "functions": {
-    "src/pages/**": {
-      "maxDuration": 10
-    }
-  }
+  ]
 }
