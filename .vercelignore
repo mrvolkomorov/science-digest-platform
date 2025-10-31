@@ -1,0 +1,39 @@
+# Dependencies
+node_modules
+.pnpm-store
+pnpm-lock.yaml
+
+# Build artifacts
+dist/use.txt
+
+# Development files
+*.log
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE files
+.vscode
+.idea
+*.swp
+*.swo
+
+# Temporary files
+.tmp
+.temp
+tmp/
+temp/
+
+# Analysis scripts
+analyze_key_findings.cjs
+ai_enrich_articles.js
+enrich_articles_script.js
+fix_translations.js
+test-progress.md
+
+# Editor backup files
+*~
+\#*\#
+.\#*

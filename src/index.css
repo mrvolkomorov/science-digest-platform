@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-background-divider;
+  }
+  
+  body {
+    @apply bg-background-primary text-text-primary font-body;
+    font-size: 19px;
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+
+  /* Editorial Drop Cap */
+  .drop-cap::first-letter {
+    @apply font-display font-bold text-text-primary;
+    font-size: 72px;
+    line-height: 1;
+    float: left;
+    margin: 0 8px 0 0;
+  }
+
+  /* Pull Quote */
+  .pull-quote {
+    @apply font-display italic text-text-secondary;
+    font-size: 30px;
+    line-height: 1.4;
+    padding-left: 32px;
+    border-left: 4px solid #B8001F;
+    margin: 40px 0;
+  }
+
+  /* Custom list bullets */
+  .editorial-list li::marker {
+    color: #B8001F;
+  }
+
+  /* Reduced Motion Support */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  /* Article Card Hover Effect */
+  .article-card {
+    @apply bg-background-surface border border-background-divider rounded-md p-lg shadow-card;
+    transition: transform 300ms cubic-bezier(0.4, 0.0, 0.2, 1), 
+                box-shadow 300ms cubic-bezier(0.4, 0.0, 0.2, 1);
+  }
+  
+  .article-card:hover {
+    @apply shadow-card-hover;
+    transform: translateY(-4px);
+  }
+
+  /* Button Styles */
+  .btn-primary {
+    @apply bg-accent-primary text-white font-ui font-semibold px-6 py-3 rounded-sm;
+    transition: background-color 200ms cubic-bezier(0.4, 0.0, 0.2, 1);
+  }
+  
+  .btn-primary:hover {
+    @apply bg-accent-hover;
+  }
+  
+  .btn-primary:active {
+    transform: scale(0.98);
+  }
+
+  .btn-secondary {
+    @apply bg-transparent text-text-primary font-ui font-semibold px-6 py-3 rounded-sm border-2 border-text-primary;
+    transition: all 200ms cubic-bezier(0.4, 0.0, 0.2, 1);
+  }
+  
+  .btn-secondary:hover {
+    @apply bg-text-primary text-white;
+  }
+
+  /* Filter Tabs */
+  .filter-tab {
+    @apply px-5 py-3 border border-background-divider rounded-pill font-ui text-sm text-text-secondary;
+    transition: all 200ms cubic-bezier(0.4, 0.0, 0.2, 1);
+  }
+  
+  .filter-tab:hover {
+    @apply bg-background-surface border-text-tertiary;
+  }
+  
+  .filter-tab.active {
+    @apply bg-accent-primary border-accent-primary text-white font-semibold;
+  }
+
+  /* Navigation Link */
+  .nav-link {
+    @apply font-ui text-text-secondary;
+    transition: color 200ms cubic-bezier(0.4, 0.0, 0.2, 1);
+  }
+  
+  .nav-link:hover {
+    @apply text-text-primary;
+  }
+  
+  .nav-link.active {
+    @apply text-text-primary;
+    text-decoration: underline;
+    text-decoration-color: #B8001F;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+  }
+
+  /* Input Fields */
+  .input-field {
+    @apply h-12 px-4 border border-background-divider rounded-sm bg-background-primary font-ui;
+    transition: border 200ms cubic-bezier(0.4, 0.0, 0.2, 1);
+  }
+  
+  .input-field:focus {
+    @apply outline-none border-accent-primary;
+    border-width: 2px;
+  }
+
+  /* Status Badges */
+  .badge-peer-reviewed {
+    @apply bg-status-peer-reviewed text-white text-metadata px-3 py-1 rounded-sm font-ui;
+  }
+  
+  .badge-preprint {
+    @apply bg-status-preprint text-white text-metadata px-3 py-1 rounded-sm font-ui;
+  }
+
+  /* Tag Chips */
+  .tag-chip {
+    @apply bg-background-surface text-text-secondary text-metadata px-3 py-1.5 rounded-pill font-ui;
+  }
+  
+  .tag-chip:hover {
+    @apply bg-accent-primary text-white cursor-pointer;
+  }
+}
