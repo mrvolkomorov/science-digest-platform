@@ -9,6 +9,7 @@ import CategoryPage from '@/pages/CategoryPage'
 import SearchPage from '@/pages/SearchPage'
 import ContactPage from '@/pages/ContactPage'
 import PrivacyPolicyPage from '@/pages/PrivacyPolicyPage'
+import CookieTestPage from '@/pages/CookieTestPage'
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             <Route path="/search" element={<SearchPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/privacy" element={<PrivacyPolicyPage />} />
+            <Route path="/cookie-test" element={<CookieTestPage />} />
           </Routes>
         </main>
         <Footer />
