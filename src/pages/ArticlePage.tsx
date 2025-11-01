@@ -9,11 +9,12 @@ export default function ArticlePage() {
   const [paper, setPaper] = useState<ResearchPaper | null>(null)
   const [loading, setLoading] = useState(true)
   const [digestId, setDigestId] = useState<number | null>(null)
+  const [forceRefresh, setForceRefresh] = useState(0)
 
   useEffect(() => {
     if (!id) return
     fetchPaper(parseInt(id))
-  }, [id])
+  }, [id, forceRefresh])
 
   useEffect(() => {
     if (paper) {
@@ -25,6 +26,8 @@ export default function ArticlePage() {
   async function fetchPaper(paperId: number) {
     setLoading(true)
     try {
+      // Добавляем timestamp для обхода кэширования браузера
+      const cacheBuster = `?t=${Date.now()}`
       const { data, error } = await supabase
         .from('research_papers')
         .select('*')
@@ -36,6 +39,14 @@ export default function ArticlePage() {
 
       setPaper(data)
       setDigestId(data.digest_id)
+      
+      console.log('📄 Загружена статья:', {
+        id: data.id,
+        title: data.title_ru || data.title,
+        source_url: data.source_url ? 'ЕСТЬ' : 'НЕТ',
+        source: data.source
+      })
+      
     } catch (error) {
       console.error('Error fetching paper:', error)
     } finally {
@@ -144,6 +155,28 @@ export default function ArticlePage() {
             </div>
           )}
 
+          {/* Информационное сообщение о доступности источника */}
+          {paper.source_url && (
+            <div className="bg-green-50 border border-green-200 rounded-lg p-3 mt-3">
+              <div className="flex items-center gap-2 text-green-800">
+                <span className="text-green-600">✅</span>
+                <span className="font-ui text-sm font-medium">
+                  Источник доступен! Кнопка "Читать оригинал" должна быть активна.
+                </span>
+              </div>
+              {paper.source?.includes('Frontiers') && (
+                <div className="text-xs text-green-600 mt-1">
+                  Источник: Frontiers - полный открытый доступ
+                </div>
+              )}
+              {paper.source?.includes('BMC') && (
+                <div className="text-xs text-green-600 mt-1">
+                  Источник: BMC - полный открытый доступ
+                </div>
+              )}
+            </div>
+          )}
+
           {/* Publication Date */}
           {paper.publication_date && (
             <div>
@@ -164,7 +197,7 @@ export default function ArticlePage() {
               <span className="font-ui text-metadata font-semibold text-text-primary mb-2 block">Категории:</span>
               <div className="flex flex-wrap gap-2">
                 {paper.tags.map((tag) => (
-                  <Link 
+                  <Link
                     key={tag} 
                     to={`/category/${encodeURIComponent(tag)}`}
                     className="tag-chip"
@@ -317,6 +350,15 @@ export default function ArticlePage() {
               Назад
             </button>
           )}
+          
+          {/* Кнопка принудительного обновления */}
+          <button
+            onClick={() => setForceRefresh(prev => prev + 1)}
+            className="btn-secondary inline-flex items-center justify-center gap-2"
+            title="Обновить данные статьи"
+          >
+            🔄 Обновить
+          </button>
         </div>
       </article>
     </div>
