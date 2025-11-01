@@ -133,6 +133,23 @@ export default function HomePage() {
           </Link>
         </div>
       </section>
+
+      {/* Contact CTA */}
+      <section className="bg-background-primary border-b border-background-divider py-4xl">
+        <div className="container max-w-reading text-center">
+          <h2 className="font-display text-headline-mobile md:text-headline font-bold text-text-primary mb-md">
+            Остались вопросы?
+          </h2>
+          <p className="font-ui text-lg text-text-secondary mb-2xl max-w-[540px] mx-auto">
+            Если у вас есть вопросы, предложения или обратная связь по нашему дайджесту, 
+            мы будем рады с вами пообщаться
+          </p>
+          <Link to="/contact" className="btn-secondary inline-flex items-center gap-2 text-lg px-8 py-4">
+            Написать нам
+            <ArrowRight className="w-6 h-6" />
+          </Link>
+        </div>
+      </section>
     </div>
   )
 }
