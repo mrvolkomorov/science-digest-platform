@@ -194,16 +194,16 @@ function DigestCard({ digest }: { digest: DigestWithCount }) {
 
   return (
     <Link to={`/digest/${digest.id}`} className="article-card block">
-      {/* Date */}
-      <p className="font-ui text-metadata text-text-tertiary uppercase tracking-wide mb-3">
-        {formattedDate}
+      {/* Дата как подзаголовок */}
+      <p className="font-ui text-sm text-accent-primary font-medium mb-3">
+        📅 {formattedDate}
       </p>
 
-      {/* Summary (truncated) */}
+      {/* Заголовок дайджеста */}
       {digest.trends_summary && (
-        <p className="font-body text-body text-text-primary mb-4 line-clamp-3">
+        <h3 className="font-display text-lg md:text-xl font-semibold text-text-primary mb-4 line-clamp-2 hover:text-accent-primary transition-colors">
           {digest.trends_summary}
-        </p>
+        </h3>
       )}
 
       {/* Paper Count */}
