@@ -77,11 +77,11 @@ export default function ArticlePage() {
       {/* Breadcrumb */}
       <section className="bg-background-surface border-b border-background-divider py-4">
         <div className="container max-w-reading">
-          <nav className="font-ui text-sm text-text-tertiary flex items-center gap-2">
+          <nav className="font-ui text-metadata text-text-tertiary flex items-center gap-2">
             <Link to="/" className="hover:text-accent-primary transition-colors">
               Главная
             </Link>
-            <ChevronRight className="w-4 h-4" />
+            <ChevronRight className="w-3 h-3" />
             {digestId && (
               <>
                 <Link 
@@ -90,7 +90,7 @@ export default function ArticlePage() {
                 >
                   Дайджест
                 </Link>
-                <ChevronRight className="w-4 h-4" />
+                <ChevronRight className="w-3 h-3" />
               </>
             )}
             <span className="text-text-secondary">Статья</span>
@@ -99,7 +99,7 @@ export default function ArticlePage() {
       </section>
 
       {/* Article Content */}
-      <article className="container max-w-reading py-3xl">
+      <article className="container max-w-reading py-xl">
         {/* Status Badge */}
         {paper.status && (
           <div className="mb-lg">
@@ -110,36 +110,36 @@ export default function ArticlePage() {
         )}
 
         {/* Title */}
-        <h1 className="font-display text-display-mobile md:text-display font-bold text-text-primary mb-xl">
+        <h1 className="font-display text-headline-mobile md:text-headline font-bold text-text-primary mb-lg">
           {title}
         </h1>
 
         {/* Metadata */}
-        <div className="space-y-3 mb-2xl pb-xl border-b border-background-divider">
+        <div className="space-y-3 mb-xl pb-lg border-b border-background-divider">
           {/* Authors */}
           {paper.authors && (
             <div>
-              <span className="font-ui text-sm font-semibold text-text-primary">Авторы: </span>
-              <span className="font-ui text-sm text-text-secondary">{paper.authors}</span>
+              <span className="font-ui text-metadata font-semibold text-text-primary">Авторы: </span>
+              <span className="font-ui text-metadata text-text-secondary">{paper.authors}</span>
             </div>
           )}
 
           {/* Source with link */}
           {paper.source && (
             <div>
-              <span className="font-ui text-sm font-semibold text-text-primary">Источник: </span>
+              <span className="font-ui text-metadata font-semibold text-text-primary">Источник: </span>
               {paper.source_url ? (
                 <a 
                   href={paper.source_url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-ui text-sm text-accent-primary hover:text-accent-hover inline-flex items-center gap-1"
+                  className="font-ui text-metadata text-accent-primary hover:text-accent-hover inline-flex items-center gap-1"
                 >
                   {paper.source}
                   <ExternalLink className="w-3 h-3" />
                 </a>
               ) : (
-                <span className="font-ui text-sm text-text-secondary">{paper.source}</span>
+                <span className="font-ui text-metadata text-text-secondary">{paper.source}</span>
               )}
             </div>
           )}
@@ -147,8 +147,8 @@ export default function ArticlePage() {
           {/* Publication Date */}
           {paper.publication_date && (
             <div>
-              <span className="font-ui text-sm font-semibold text-text-primary">Дата публикации: </span>
-              <span className="font-ui text-sm text-text-secondary">
+              <span className="font-ui text-metadata font-semibold text-text-primary">Дата публикации: </span>
+              <span className="font-ui text-metadata text-text-secondary">
                 {new Date(paper.publication_date).toLocaleDateString('ru-RU', {
                   year: 'numeric',
                   month: 'long',
@@ -161,7 +161,7 @@ export default function ArticlePage() {
           {/* Tags */}
           {paper.tags && paper.tags.length > 0 && (
             <div>
-              <span className="font-ui text-sm font-semibold text-text-primary mb-2 block">Категории:</span>
+              <span className="font-ui text-metadata font-semibold text-text-primary mb-2 block">Категории:</span>
               <div className="flex flex-wrap gap-2">
                 {paper.tags.map((tag) => (
                   <Link 
@@ -179,8 +179,8 @@ export default function ArticlePage() {
 
         {/* Abstract */}
         {abstract && (
-          <section className="mb-3xl">
-            <h2 className="font-display text-headline-mobile md:text-headline font-semibold text-text-primary mb-lg">
+          <section className="mb-xl">
+            <h2 className="font-display text-headline-mobile md:text-headline font-semibold text-text-primary mb-md">
               Аннотация
             </h2>
             <div className="font-body text-body-mobile md:text-body text-text-primary leading-relaxed">
@@ -191,11 +191,11 @@ export default function ArticlePage() {
 
         {/* Key Findings */}
         {keyFindings && keyFindings.length > 0 && (
-          <section className="mb-3xl">
-            <h2 className="font-display text-headline-mobile md:text-headline font-semibold text-text-primary mb-lg">
+          <section className="mb-xl">
+            <h2 className="font-display text-headline-mobile md:text-headline font-semibold text-text-primary mb-md">
               Ключевые выводы
             </h2>
-            <ul className="editorial-list list-disc list-inside space-y-4 font-body text-body-mobile md:text-body text-text-primary">
+            <ul className="editorial-list list-disc list-inside space-y-2 font-body text-body-mobile md:text-body text-text-primary">
               {keyFindings.map((finding, i) => (
                 <li key={i}>{finding}</li>
               ))}
@@ -205,8 +205,8 @@ export default function ArticlePage() {
 
         {/* Significance */}
         {significance && significance !== 'Требуется анализ для определения значимости' && (
-          <section className="mb-3xl">
-            <h2 className="font-display text-headline-mobile md:text-headline font-semibold text-text-primary mb-lg">
+          <section className="mb-xl">
+            <h2 className="font-display text-headline-mobile md:text-headline font-semibold text-text-primary mb-md">
               Значимость исследования
             </h2>
             <div className="font-body text-body-mobile md:text-body text-text-primary leading-relaxed">
@@ -217,8 +217,8 @@ export default function ArticlePage() {
 
         {/* Rating */}
         {paper.rating && (
-          <section className="mb-3xl">
-            <h2 className="font-display text-headline-mobile md:text-headline font-semibold text-text-primary mb-lg">
+          <section className="mb-xl">
+            <h2 className="font-display text-headline-mobile md:text-headline font-semibold text-text-primary mb-md">
               Рейтинг
             </h2>
             <div className="flex items-center gap-3">
@@ -226,7 +226,7 @@ export default function ArticlePage() {
                 {[1, 2, 3, 4, 5].map((star) => (
                   <Star
                     key={star}
-                    className={`w-6 h-6 ${
+                    className={`w-4 h-4 ${
                       star <= Number(paper.rating)
                         ? 'fill-accent-primary text-accent-primary'
                         : 'text-background-divider'
@@ -234,7 +234,7 @@ export default function ArticlePage() {
                   />
                 ))}
               </div>
-              <span className="font-display text-2xl font-semibold text-accent-primary">
+              <span className="font-display text-lg font-semibold text-accent-primary">
                 {paper.rating}/5
               </span>
             </div>
@@ -243,9 +243,9 @@ export default function ArticlePage() {
 
         {/* Article Potential */}
         {paper.article_potential_ru && (
-          <section className="mb-3xl">
-            <h2 className="font-display text-headline-mobile md:text-headline font-semibold text-text-primary mb-lg flex items-center gap-2">
-              <Lightbulb className="w-6 h-6 text-accent-primary" />
+          <section className="mb-xl">
+            <h2 className="font-display text-headline-mobile md:text-headline font-semibold text-text-primary mb-md flex items-center gap-2">
+              <Lightbulb className="w-5 h-5 text-accent-primary" />
               Потенциал для статьи
             </h2>
             <div className="bg-background-surface border-l-4 border-accent-primary p-lg rounded-r-lg">
@@ -258,8 +258,8 @@ export default function ArticlePage() {
 
         {/* Suggested Headlines */}
         {paper.suggested_headlines && paper.suggested_headlines.length > 0 && (
-          <section className="mb-3xl">
-            <h2 className="font-display text-headline-mobile md:text-headline font-semibold text-text-primary mb-lg">
+          <section className="mb-xl">
+            <h2 className="font-display text-headline-mobile md:text-headline font-semibold text-text-primary mb-md">
               Возможные заголовки для статьи
             </h2>
             <div className="space-y-3">
@@ -269,7 +269,7 @@ export default function ArticlePage() {
                   className="bg-background-surface border border-background-divider p-md rounded-lg hover:border-accent-primary transition-colors"
                 >
                   <div className="flex items-start gap-3">
-                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-accent-primary text-background-primary font-ui text-sm font-semibold flex items-center justify-center">
+                    <span className="flex-shrink-0 w-5 h-5 rounded-full bg-accent-primary text-background-primary font-ui text-xs font-semibold flex items-center justify-center">
                       {i + 1}
                     </span>
                     <p className="font-body text-body-mobile md:text-body text-text-primary flex-1">
@@ -283,8 +283,8 @@ export default function ArticlePage() {
         )}
 
         {/* Actions */}
-        <div className="flex flex-col sm:flex-row gap-4 pt-2xl border-t border-background-divider">
-          {paper.source_url && (
+        <div className="flex flex-col sm:flex-row gap-4 pt-lg border-t border-background-divider">
+          {paper.source_url ? (
             <a
               href={paper.source_url}
               target="_blank"
@@ -292,15 +292,20 @@ export default function ArticlePage() {
               className="btn-primary inline-flex items-center justify-center gap-2"
             >
               Читать оригинал
-              <ExternalLink className="w-5 h-5" />
+              <ExternalLink className="w-4 h-4" />
             </a>
+          ) : (
+            <div className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-gray-100 text-gray-500 rounded-sm font-ui">
+              Источник недоступен
+              <ExternalLink className="w-4 h-4" />
+            </div>
           )}
           {digestId ? (
             <Link 
               to={`/digest/${digestId}`}
               className="btn-secondary inline-flex items-center justify-center gap-2"
             >
-              <ChevronLeft className="w-5 h-5" />
+              <ChevronLeft className="w-4 h-4" />
               Назад к дайджесту
             </Link>
           ) : (
@@ -308,7 +313,7 @@ export default function ArticlePage() {
               onClick={() => navigate(-1)}
               className="btn-secondary inline-flex items-center justify-center gap-2"
             >
-              <ChevronLeft className="w-5 h-5" />
+              <ChevronLeft className="w-4 h-4" />
               Назад
             </button>
           )}
