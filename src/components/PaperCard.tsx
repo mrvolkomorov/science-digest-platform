@@ -26,7 +26,7 @@ export default function PaperCard({
   }
 
   return (
-    <Link to={`/paper/${paper.id}`} className={`block rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 hover:no-underline ${variant === 'compact' ? 'p-3' : 'p-4'} bg-white dark:bg-gray-800`}>
+    <Link to={`/article/${paper.id}`} className={`block rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 hover:no-underline ${variant === 'compact' ? 'p-3' : 'p-4'} bg-white dark:bg-gray-800`}>
       {/* Status Badge */}
       {paper.status && (
         <span className={`inline-flex items-center rounded-md px-2 py-1 text-xs font-medium ring-1 ring-inset ${paper.status === 'peer-reviewed' ? 'bg-green-50 text-green-700 ring-green-600/20 dark:bg-green-400/10 dark:text-green-400 dark:ring-green-400/20' : 'bg-blue-50 text-blue-700 ring-blue-600/20 dark:bg-blue-400/10 dark:text-blue-400 dark:ring-blue-400/20'}`}>
