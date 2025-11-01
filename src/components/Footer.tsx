@@ -40,9 +40,17 @@ export function Footer() {
             </p>
             <a 
               href="/contact" 
-              className="inline-block font-ui text-sm text-accent-primary hover:text-accent-hover transition-colors"
+              className="inline-block font-ui text-sm text-accent-primary hover:text-accent-hover transition-colors mb-2"
             >
               Написать нам →
+            </a>
+            <br />
+            <a 
+              href="/cookie-test" 
+              className="inline-block font-ui text-xs text-text-tertiary hover:text-accent-primary transition-colors"
+              title="Тестовая страница для проверки работы cookie banner"
+            >
+              🧪 Тест cookies
             </a>
           </div>
         </div>
