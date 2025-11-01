@@ -35,9 +35,15 @@ export function Footer() {
             <h3 className="font-display text-xl font-semibold mb-4 text-text-primary">
               Контакты
             </h3>
-            <p className="font-ui text-sm text-text-secondary">
+            <p className="font-ui text-sm text-text-secondary mb-3">
               Для вопросов и предложений свяжитесь с нами через форму обратной связи.
             </p>
+            <a 
+              href="/contact" 
+              className="inline-block font-ui text-sm text-accent-primary hover:text-accent-hover transition-colors"
+            >
+              Написать нам →
+            </a>
           </div>
         </div>
 

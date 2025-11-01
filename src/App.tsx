@@ -7,6 +7,7 @@ import DigestDetailPage from '@/pages/DigestDetailPage'
 import ArticlePage from '@/pages/ArticlePage'
 import CategoryPage from '@/pages/CategoryPage'
 import SearchPage from '@/pages/SearchPage'
+import ContactPage from '@/pages/ContactPage'
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path="/article/:id" element={<ArticlePage />} />
             <Route path="/category/:categoryName" element={<CategoryPage />} />
             <Route path="/search" element={<SearchPage />} />
+            <Route path="/contact" element={<ContactPage />} />
           </Routes>
         </main>
         <Footer />
