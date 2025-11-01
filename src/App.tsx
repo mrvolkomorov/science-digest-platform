@@ -8,6 +8,7 @@ import ArticlePage from '@/pages/ArticlePage'
 import CategoryPage from '@/pages/CategoryPage'
 import SearchPage from '@/pages/SearchPage'
 import ContactPage from '@/pages/ContactPage'
+import PrivacyPolicyPage from '@/pages/PrivacyPolicyPage'
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path="/category/:categoryName" element={<CategoryPage />} />
             <Route path="/search" element={<SearchPage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/privacy" element={<PrivacyPolicyPage />} />
           </Routes>
         </main>
         <Footer />
