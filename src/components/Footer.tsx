@@ -49,8 +49,9 @@ export function Footer() {
 
         <div className="mt-xl pt-lg border-t border-background-divider">
           <p className="font-ui text-sm text-text-tertiary text-center">
-            © {new Date().getFullYear()} Ежедневный нейродайджест. Все права защищены.
-          </p>
+  © {new Date().getFullYear()} Ежедневный нейродайджест. Все права защищены.<br />
+  Права на сайт принадлежат <strong>Владимиру Волкоморову</strong> (<strong>mrvolkomorov</strong>)
+</p>
         </div>
       </div>
     </footer>
