@@ -5,12 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "npx tsc -b && vite build",
-    "build:prod": "npx tsc -b && BUILD_MODE=prod vite build",
-    "build:vercel": "npx tsc -b && BUILD_MODE=prod vite build",
+    "build": "vite build",
+    "build:prod": "BUILD_MODE=prod vite build",
+    "build:vercel": "BUILD_MODE=prod vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "type-check": "npx tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "type-check:verbose": "tsc --noEmit --verbose"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
