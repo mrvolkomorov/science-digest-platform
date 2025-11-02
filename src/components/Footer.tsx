@@ -46,6 +46,13 @@ export function Footer() {
             </a>
             <br />
             <a 
+              href="/privacy" 
+              className="inline-block font-ui text-sm text-text-secondary hover:text-accent-primary transition-colors mb-2"
+            >
+              Политика конфиденциальности →
+            </a>
+            <br />
+            <a 
               href="/cookie-test" 
               className="inline-block font-ui text-xs text-text-tertiary hover:text-accent-primary transition-colors"
               title="Тестовая страница для проверки работы cookie banner"
