@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Navigation } from '@/components/Navigation'
 import { Footer } from '@/components/Footer'
+import CookieBanner from '@/components/CookieBanner'
 import HomePage from '@/pages/HomePage'
 import ArchivePage from '@/pages/ArchivePage'
 import DigestDetailPage from '@/pages/DigestDetailPage'
@@ -30,6 +31,7 @@ function App() {
           </Routes>
         </main>
         <Footer />
+        <CookieBanner />
       </div>
     </BrowserRouter>
   )
